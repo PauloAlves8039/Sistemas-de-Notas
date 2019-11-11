@@ -1,0 +1,38 @@
+:root{
+    --font-color: white;
+    --font-color-hover: #FFD39B;
+    --font-color-title: #836FFF;
+    --menu-background: #836FFF;
+}
+
+.titulo{
+    color: var(--font-color-title);
+    text-align: center;
+}
+
+thead, th{
+    color: var(--font-color);
+    background-color: var(--menu-background);
+    
+}
+
+#TituloModalCentralizado{
+    color: var(--font-color-title);
+}
+
+#btnEditar:hover{
+    background-color: var(--font-color-hover);
+}
+
+#btnDeletar:hover{
+    background-color: var(--font-color-hover);
+}
+
+#btnFechar:hover{
+    background-color: var(--font-color-hover);
+}
+
+#btnSalvar:hover{
+    background-color: var(--font-color-hover);
+}
+
