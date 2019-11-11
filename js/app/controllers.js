@@ -16,4 +16,17 @@ angular.module("alunoModulo")
         {nome: "Raquel",email:"raquel@mail.com",nota1:6.5,nota2:3.0,nota3:6.5},
         {nome: "Marcelo",email:"marcelo@mail.com",nota1:6.5,nota2:6.0,nota3:7.5}
     ]
+
+    let init = function(){
+        $scope.alunos.forEach(function(aluno){
+            aluno.media = media(aluno)
+        })
+    }
+
+    let media = function(Aluno){
+        let media = (parseFloat(Aluno.nota1) + parseFloat(Aluno.nota2) + parseFloat(Aluno.nota3))/3
+        return media.toFixed(2)
+    }
+
+    init()
 })
