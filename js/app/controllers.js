@@ -1,7 +1,7 @@
 /*
  * Arquivo: controllers.js
  * Autor: Paulo Alves
- * Descrição: controlador responsável pela regra de negócio da aplicação e contato
+ * Descrição: responsável pela regra de negócio da aplicação com os controladores index e contato
  * Data: 11/11/2019
 */
 
@@ -21,6 +21,7 @@ angular.module("alunoModulo")
         $scope.alunos.forEach(function(aluno){
             aluno.media = media(aluno)
         })
+        limparCampos()
     }
 
     let media = function(Aluno){
@@ -28,5 +29,13 @@ angular.module("alunoModulo")
         return media.toFixed(2)
     }
 
+    let limparCampos = function(){
+        $scope.Aluno = {nome: "",email:"",nota1:'',nota2:'',nota3:'',media:''}
+    }
+
     init()
+})
+
+.controller("contatoController",function($scope){
+    $scope.titulo = "Contato"
 })
