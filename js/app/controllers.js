@@ -29,6 +29,47 @@ angular.module("alunoModulo")
         return media.toFixed(2)
     }
 
+    $scope.editando = false
+    let alunoEditar
+
+    $scope.abrirRegistroAluno = function(){
+        $scope.editando = false
+        limparCampos()
+    }
+
+    $scope.adicionarRegistroAluno = function(Aluno){
+        Aluno.media = media(Aluno)
+        $scope.alunos.push(Aluno)
+        $('#ExemploModalCentralizado').modal('hide')
+        limparCampos()
+    }
+    
+    $scope.salvarRegistroAluno = function(Aluno){
+        alunoEditar.nome = Aluno.nome
+        alunoEditar.email = Aluno.email
+        alunoEditar.nota1 = Aluno.nota1
+        alunoEditar.nota2 = Aluno.nota2
+        alunoEditar.nota3 = Aluno.nota3
+        alunoEditar.media = media(Aluno)
+        $('#ExemploModalCentralizado').modal('hide')
+    }
+    
+    $scope.editarRegistroAluno = function(Aluno){
+        $scope.editando = true
+        angular.copy(Aluno,$scope.Aluno)
+        $('#ExemploModalCentralizado').modal('show')
+        alunoEditar = Aluno
+    }
+
+    $scope.deletarRegistroAluno = function(Aluno){
+        for(let index in $scope.alunos){
+            let aux = $scope.alunos[index]
+            if(Aluno == aux){
+                $scope.alunos.splice(index, 1)
+            }
+        }
+    }
+
     let limparCampos = function(){
         $scope.Aluno = {nome: "",email:"",nota1:'',nota2:'',nota3:'',media:''}
     }
