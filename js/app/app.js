@@ -5,7 +5,7 @@
  * Data: 11/11/2019
 */
 
-angular.module("alunoModulo",[''])
+angular.module("alunoModulo",['ngRoute'])
 
 .config(function($routeProvider){
     $routeProvider

@@ -1,13 +1,14 @@
+<div ng-include="'templates/_nav.html'"></div>
 <main class="container">
     <header class="container">
-        <h2 class="titulo">Home</h2>
+        <h2 class="titulo">{{titulo}}</h2>
     </header>
     <div>
-        <input type="text" class="form-control" placeholder="Busca">
+        <input type="text" class="form-control" ng-model="busca.nome" placeholder="Busca">
         <br>
     </div>
     <div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
+        <button ng-click="abrirRegistroAluno()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
             ADICIONAR
         </button>
     </div>
@@ -26,18 +27,18 @@
                 </tr>
             </thead>
                 <tbody>
-                    <tr>
-                        <td>Paulo</td>
-                        <td>paulo@mail.com</td>
-                        <td>5.5</td>
-                        <td>5.5</td>
-                        <td>5.5</td>
-                        <td>5.5</td>
+                    <tr ng-repeat="aluno in alunos | filter:busca">
+                        <td>{{aluno.nome}}</td>
+                        <td>{{aluno.email}}</td>
+                        <td>{{aluno.nota1}}</td>
+                        <td>{{aluno.nota2}}</td>
+                        <td>{{aluno.nota3}}</td>
+                        <td>{{aluno.media}}</td>
                         <td>
-                            <button id="btnEditar" class="btn btn-success btn-sm" aria-label="Left Align">
+                            <button id="btnEditar" ng-click="editarRegistroAluno(aluno)" class="btn btn-success btn-sm" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-refresh"></span>
                             </button>
-                            <button id="btnDeletar" class="btn btn-danger btn-sm" aria-label="Left Align">
+                            <button id="btnDeletar" ng-click="deletarRegistroAluno(aluno)" class="btn btn-danger btn-sm" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>                            
                         </td>
@@ -50,26 +51,26 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h2 class="modal-title" id="TituloModalCentralizado">Adicionar Aluno</h2>
-                <h2 class="modal-title" id="TituloModalCentralizado">Editar Aluno</h2>
+                <h2 ng-if="!editando" class="modal-title" id="TituloModalCentralizado">Adicionar Aluno</h2>
+                <h2 ng-if="editando" class="modal-title" id="TituloModalCentralizado">Editar Aluno</h2>
                 <p>Preencha os dados do Aluno</p>
                 </div>
                 <div class="form-group">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" class="validate" placeholder="Nome">
+                            <input type="text" class="form-control" ng-model="Aluno.nome" class="validate" placeholder="Nome">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" class="validate" placeholder="E-mail">
+                            <input type="text" class="form-control" ng-model="Aluno.email" class="validate" placeholder="E-mail">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" class="validate" placeholder="Nota1">
+                            <input type="text" class="form-control" ng-model="Aluno.nota1" class="validate" placeholder="Nota1">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" class="validate" placeholder="Nota2">
+                            <input type="text" class="form-control" ng-model="Aluno.nota2" class="validate" placeholder="Nota2">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" class="validate" placeholder="Nota3">
+                            <input type="text" class="form-control" ng-model="Aluno.nota3" class="validate" placeholder="Nota3">
                         </div>
                     </div>
                 </div>
@@ -77,10 +78,10 @@
                 <button id="btnFechar" type="button" class="btn btn-default" data-dismiss="modal" aria-label="Left Align">
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
-                <button id="btnEditar" type="button" class="btn btn-primary" aria-label="Left Align">
+                <button id="btnEditar" ng-if="!editando" ng-click="adicionarRegistroAluno(Aluno)" type="button" class="btn btn-primary" aria-label="Left Align">
                     <span class="glyphicon glyphicon-ok"></span>
                 </button>
-                <button id="btnSalvar" type="button" class="btn btn-success" aria-label="Left Align">
+                <button id="btnSalvar" ng-if="editando" ng-click="salvarRegistroAluno(Aluno)" type="button" class="btn btn-success" aria-label="Left Align">
                     <span class="glyphicon glyphicon-floppy-disk"></span>
                 </button>
                 </div>
