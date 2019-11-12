@@ -15,4 +15,5 @@ angular.module("alunoModulo",['ngRoute'])
     .when("/contato", {
         templateUrl:"templates/contato.html", controller:"contatoController"
     })
+    $routeProvider.otherwise({redirectTo:"/home"})
 })
