@@ -36,3 +36,7 @@ thead, th{
     background-color: var(--font-color-hover);
 }
 
+.foco:hover{
+	outline: solid var(--menu-background);
+}
+
