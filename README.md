@@ -9,3 +9,12 @@ projeto baseado no curso [Angular JS na Prática](https://www.udemy.com/course/a
 - Javascript
 - Bootstrap v3.3.7
 - AngularJS v1.7.8
+
+# Screenshot
+<html lang="pt-br">
+<head>
+</head>
+<body>
+  <img src="https://github.com/PauloAlves8039/Sistemas-de-Notas/blob/master/resources/screenshot/screenshot.png"/>
+</body>
+</html>
