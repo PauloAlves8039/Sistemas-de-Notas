@@ -6,8 +6,9 @@
 </p>
 
 ## :computer: Projeto
-Repositório de uma SPA(Single-Page Application) para fins acadêmicos, no qual foi desenvolvido um CRUD básico para gerenciamento de notas de alunos utilizando o Framework AngularJS.   
-Código fonte da aplicação foi baseado no curso [Angular JS na Prática](https://www.udemy.com/course/angular-js-na-pratica/). 
+Repositório de uma SPA(Single-Page Application) para fins acadêmicos, no qual foi desenvolvido um CRUD básico para gerenciamento de notas de alunos utilizando o Framework AngularJS.
+
+Código fonte do <strong>Sistema de Notas</strong> foi baseado no curso [Angular JS na Prática](https://www.udemy.com/course/angular-js-na-pratica/). 
 
 ## :wrench: Recursos Utilizados
 - HTML5
